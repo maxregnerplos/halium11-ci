@@ -9,10 +9,10 @@ source build/envsetup.sh
 export LC_ALL=C && export USE_NINJA=false && export USE_CCACHE=1 && export ALLOW_MISSING_DEPENDENCIES=true
 virtualenv --python 2.7 ~/python27
 source ~/python27/bin/activate
-breakfast $DEVICE
-make -j$(nproc) hybris-hal
-make -j$(nproc) halium-boot
-make -j$(nproc) systemimage 
+breakfast aosp_f5321-eng
+make -k -j$(nproc) hybris-hal
+make -k -j$(nproc) halium-boot
+make -k -j$(nproc) systemimage 
 
 echo "md5sum halium-boot.img and system.img"
 md5sum $ANDROID_ROOT/out/target/product/${DEVICE}/halium-boot.img
